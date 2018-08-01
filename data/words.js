@@ -26,7 +26,10 @@ export const nouns = [
   'הייתי',
   'כמה',
   'שגעת',
-  'הופה'
+  'הופה',
+  'עיניים',
+  'חיים',
+  'נשמה'
 ]
 
 export const verbs = [
@@ -66,10 +69,10 @@ export const conjunctions = [
   'וואי וואי וואי',
   'אם',
   'עם'
-];
+]
 
 export const conjunctionsNoSpace = [
   'ו',
   'ל',
   'כש'
-];
+]
