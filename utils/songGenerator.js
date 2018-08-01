@@ -1,13 +1,10 @@
+import * as sentences from '../data/sentences'
 import * as words from '../data/words'
 
-const options = {
-  parsesNumber: 3,
-  parseLinesNumber: 4
-}
-
-const generateParse = () => {
+const generateParse = parseLines => {
   let parse = ''
-  for (const i = 0; i < options.parseLinesNumber; i++) {
+  const parseLinesNumber = parseLines || Math.floor(Math.random() * 3) + 3
+  for (const i = 0; i < parseLinesNumber; i++) {
     const sentence = generateSentence()
     parse += sentence + '\n'
   }
@@ -15,26 +12,29 @@ const generateParse = () => {
   return parse
 }
 
-const generateSentence = () => {
+const generateSentence = type => {
   let sentence = ''
-  sentence += `${getRandomWord('nouns')} `
-  sentence += `${getRandomWord('nouns')} `
-  sentence += `${getRandomWord('adjectives')} `
-  sentence += `${getRandomWord('conjunctions')} `
-  sentence += `${getRandomWord('adjectives')} `
+  const sentenceTypes = type || sentences.types[Math.floor(Math.random() * sentences.types.length)]
+  sentenceTypes.forEach((type, i) => {
+    sentence += getRandomWord(type)
+    if (type !== 'conjunctionsNoSpace' && i !== sentenceTypes.length - 1) {
+      sentence += ' '
+    }
+  })
 
   return sentence
 }
 
-const getRandomWord = (type) => {
+const getRandomWord = type => {
   const relevantWords = words[type]
   return relevantWords[Math.floor(Math.random() * relevantWords.length)]
 }
 
-const generateSong = () => {
+const generateSong = parses => {
   let song = ''
   const ditty = generateParse()
-  for (const i = 0; i < options.parsesNumber; i++) {
+  const parsesNumber = parses || Math.floor(Math.random() * 3) + 2
+  for (const i = 0; i < parsesNumber; i++) {
     const parse = generateParse()
     song += parse + '\n' + ditty + '\n'
   }

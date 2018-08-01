@@ -22,12 +22,12 @@ export const nouns = [
   'נשמתי',
   'שירים',
   'כוח',
-  'לשמוח',
   'בוקר',
   'הייתי',
   'כמה',
-  'שגעת'
-];
+  'שגעת',
+  'הופה'
+]
 
 export const verbs = [
   'צוחקת',
@@ -45,8 +45,9 @@ export const verbs = [
   'אשיר',
   'יושן',
   'ער',
-  'חושב'
-]; 
+  'חושב',
+  'לשמוח'
+]
 
 export const adjectives = [
   'מדהימה',
@@ -57,13 +58,18 @@ export const adjectives = [
   'נסיכה',
   'משוגעת',
   'מקסימה'
-];
+]
 
 export const conjunctions = [
-  'ו',
   'גם',
   'או',
-  'ל',
   'וואי וואי וואי',
-  'אם'
-]; 
+  'אם',
+  'עם'
+];
+
+export const conjunctionsNoSpace = [
+  'ו',
+  'ל',
+  'כש'
+];
