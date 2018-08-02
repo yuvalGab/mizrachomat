@@ -1,9 +1,9 @@
 import * as sentences from '../data/sentences'
 import * as words from '../data/words'
 
-const generateParse = parseLines => {
+const generateParse = number => {
   let parse = ''
-  const parseLinesNumber = parseLines || Math.floor(Math.random() * 3) + 3
+  const parseLinesNumber = number || Math.floor(Math.random() * 3) + 3
   for (const i = 0; i < parseLinesNumber; i++) {
     const sentence = generateSentence()
     parse += sentence + '\n'
@@ -12,12 +12,13 @@ const generateParse = parseLines => {
   return parse
 }
 
-const generateSentence = type => {
+const generateSentence = pattern => {
   let sentence = ''
-  const sentenceTypes = type || sentences.types[Math.floor(Math.random() * sentences.types.length)]
-  sentenceTypes.forEach((type, i) => {
+  const sentencePattern = pattern || 
+    sentences.parseSentencePatterns[Math.floor(Math.random() * sentences.parseSentencePatterns.length)]
+  sentencePattern.forEach((type, i) => {
     sentence += getRandomWord(type)
-    if (type !== 'conjunctionsNoSpace' && i !== sentenceTypes.length - 1) {
+    if (type !== 'conjunctionsNoSpace' && i !== (sentencePattern.length - 1)) {
       sentence += ' '
     }
   })
@@ -30,16 +31,25 @@ const getRandomWord = type => {
   return relevantWords[Math.floor(Math.random() * relevantWords.length)]
 }
 
-const generateSong = parses => {
+export const generateLabel = pattern => {
+  const sentencePattern = pattern || 
+    sentences.labelSentencePatterns[Math.floor(Math.random() * sentences.labelSentencePatterns.length)]
+  return generateSentence(sentencePattern)
+}
+
+export const generateAuthor = name => {
+  const baseName = name || words.authors[Math.floor(Math.random() * words.authors.length)]
+  return `מאת: ${baseName} המלאך`
+}
+
+export const generateSong = number => {
   let song = ''
   const ditty = generateParse()
-  const parsesNumber = parses || Math.floor(Math.random() * 3) + 2
+  const parsesNumber = number || Math.floor(Math.random() * 3) + 2
   for (const i = 0; i < parsesNumber; i++) {
     const parse = generateParse()
     song += parse + '\n' + ditty + '\n'
   }
 
   return song
-} 
-
-export default generateSong
+}

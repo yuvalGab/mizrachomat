@@ -1,5 +1,5 @@
 
-export const types = [
+export const parseSentencePatterns = [
   ['nouns', 'verbs', 'adjectives', 'conjunctions', 'adjectives'],
   ['nouns', 'verbs', 'adjectives', 'conjunctionsNoSpace', 'adjectives'],
   ['nouns', 'verbs', 'nouns', 'conjunctions', 'adjectives'],
@@ -8,4 +8,14 @@ export const types = [
   ['nouns', 'verbs', 'adjectives', 'conjunctionsNoSpace', 'nouns'],
   ['nouns', 'verbs', 'nouns', 'adjectives'],
   ['nouns', 'verbs', 'adjectives', 'nouns']
+]
+
+export const labelSentencePatterns = [
+  ['nouns', 'verbs', 'nouns', 'adjectives'],
+  ['nouns', 'verbs', 'adjectives', 'nouns'],
+  ['nouns', 'verbs', 'adjectives'],
+  ['nouns', 'verbs', 'nouns'],
+  ['nouns', 'adjectives'],
+  ['nouns', 'verbs'],
+  ['verbs', 'nouns']
 ]

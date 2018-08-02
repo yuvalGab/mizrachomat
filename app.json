@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "mizrachomat",
-    "description": "This project is really great.",
+    "description": "a mobile native app for automatic creation of words for 'mizrachit' songs",
     "slug": "mizrachomat",
     "privacy": "public",
     "sdkVersion": "29.0.0",
