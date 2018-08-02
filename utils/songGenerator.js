@@ -1,6 +1,10 @@
 import * as sentences from '../data/sentences'
 import * as words from '../data/words'
 
+const getRandomItem = array => {
+  return array[Math.floor(Math.random() * array.length)]
+}
+
 const generateParse = number => {
   let parse = ''
   const parseLinesNumber = number || Math.floor(Math.random() * 3) + 3
@@ -14,8 +18,7 @@ const generateParse = number => {
 
 const generateSentence = pattern => {
   let sentence = ''
-  const sentencePattern = pattern || 
-    sentences.parseSentencePatterns[Math.floor(Math.random() * sentences.parseSentencePatterns.length)]
+  const sentencePattern = pattern || getRandomItem(sentences.parseSentencePatterns)
   sentencePattern.forEach((type, i) => {
     sentence += getRandomWord(type)
     if (type !== 'conjunctionsNoSpace' && i !== (sentencePattern.length - 1)) {
@@ -32,13 +35,12 @@ const getRandomWord = type => {
 }
 
 export const generateLabel = pattern => {
-  const sentencePattern = pattern || 
-    sentences.labelSentencePatterns[Math.floor(Math.random() * sentences.labelSentencePatterns.length)]
+  const sentencePattern = pattern || getRandomItem(sentences.labelSentencePatterns)
   return generateSentence(sentencePattern)
 }
 
 export const generateAuthor = name => {
-  const baseName = name || words.authors[Math.floor(Math.random() * words.authors.length)]
+  const baseName = name || getRandomItem(words.authors)
   return `מאת: ${baseName} המלאך`
 }
 
